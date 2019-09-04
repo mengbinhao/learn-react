@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { CSSTransition } from 'react-transition-group'
 
 class Boss extends Component {
   constructor(props) {
@@ -11,7 +12,14 @@ class Boss extends Component {
   render() {
     return (
       <div>
-        <div className={this.state.isShow?'show':'hide'}>animating...</div>
+        <CSSTransition
+          in={ this.state.isShow }
+          timeout={2000}
+          classNames="boss-node"
+          unmountOnExit
+        >
+          <div>animating...</div>
+        </CSSTransition>
         <div>
           <button onClick={ this.toggle }>click me</button>
         </div>
