@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import './style.css'
 import Item from './Item'
+import axios from 'axios'
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class App extends Component {
     //here is data
     this.state = {
       inputVal: 'jack',
-      services: ['基础按摩']
+      services: []
     }
 
     this.changeVal = this.changeVal.bind(this)
@@ -80,6 +81,15 @@ class App extends Component {
   }
   componentDidMount() {
     console.log(`App-componentDidMount`)
+    axios.get('https://www.easy-mock.com/mock/5d6f8287cc33f915329151eb/reactdemo/')
+         .then(res => {
+           this.setState({
+             services: res.data.data
+           })
+         })
+         .catch(err => {
+           console.log(err)
+         })
   }
   shouldComponentUpdate() {
     console.log(`App-shouldComponentUpdate`)
