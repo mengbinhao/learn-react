@@ -22,3 +22,8 @@
     3.  props(UNSAFE_componentWillReceiveProps -> **shouldComponentUpdate这可以使用生命周期进行性能优化** -> UNSAFE_componentWillUpdate -> render -> componentDidUpdate)、state(shouldComponentUpdate -> UNSAFE_componentWillUpdate -> render -> componentDidUpdate)
     4.  componentWillUnmount
 17. use axios in componentDidMount for get data from easymock
+18. animation
+    1. CSS3
+    2. keyframes
+    3. `react-transition-group`可以同时消除DOM(Transition、CSSTransition、
+SwitchTransition、TransitionGroup)

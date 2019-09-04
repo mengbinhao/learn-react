@@ -1,8 +1,8 @@
-import React, {Component, Fragment} from 'react'
+import React, { Component, Fragment } from 'react'
 import './style.css'
 import Item from './Item'
 import axios from 'axios'
-
+import Boss from './Boss'
 class App extends Component {
   constructor(props) {
     super(props)
@@ -50,6 +50,7 @@ class App extends Component {
             })
           }
         </ul>
+        <Boss />
       </Fragment>
     )
   }
