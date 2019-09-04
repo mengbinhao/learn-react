@@ -26,10 +26,15 @@ class App extends Component {
         }
         <div>
           <label htmlFor="servive">add service: </label>
-          <input id="servive" className="input" value={this.state.inputVal} onChange={this.changeVal}/>
+          <input id="servive"
+                 className="input"
+                 value={this.state.inputVal}
+                 onChange={this.changeVal}
+                 ref={val => this.inputVal = val}
+          />
           <button onClick={this.addService}>add service</button>
         </div>
-        <ul>
+        <ul ref={ul => this.ul = ul}>
           {
             this.state.services.map((item, index) => {
               return (
@@ -46,16 +51,21 @@ class App extends Component {
       </Fragment>
     )
   }
-  changeVal(e) {
+  changeVal() {
     this.setState({
-      inputVal: e.target.value
+      //inputVal: e.target.value
+      inputVal: this.inputVal.value
     })
   }
   addService() {
     this.setState({
       services: [...this.state.services, this.state.inputVal],
       inputVal: ''
+    }, () => {
+      console.log(this.ul.querySelectorAll('li').length)
     })
+    //setState aync invoke, added in event loop
+    //console.log(this.ul.querySelectorAll('li').length)
   }
   deleteSerivce(idx) {
     const tmp = this.state.services
