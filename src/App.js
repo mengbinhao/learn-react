@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import './style.css'
+import Item from './Item'
 
 class App extends Component {
   constructor(props) {
@@ -24,35 +25,27 @@ class App extends Component {
           //comment2
         }
         <div>
-          <label htmlFor="servive">add service:</label>
+          <label htmlFor="servive">add service: </label>
           <input id="servive" className="input" value={this.state.inputVal} onChange={this.changeVal}/>
           <button onClick={this.addService}>add service</button>
         </div>
         <ul>
-            {
-              this.state.services.map((item, index) => {
-                return (
-                  <li key={index+item}
-                      onClick={this.deleteSerivce.bind(undefined, index)}
-                  >
-                    { item }
-                  </li>
-                )
-              })
-            }
+          {
+            this.state.services.map((item, index) => {
+              return (
+                <Item key={index + item}
+                      content={item}
+                      deleteService={this.deleteSerivce}
+                      index={index}
+                />
+              )
+            })
+          }
         </ul>
       </Fragment>
     )
   }
   changeVal(e) {
-    //console.log(this)
-    //console.log(e)
-
-    //does not work!!!
-    //does not work!!!
-    //does not work!!!
-    //this.inputVal = e.target.value
-
     this.setState({
       inputVal: e.target.value
     })
@@ -64,17 +57,10 @@ class App extends Component {
     })
   }
   deleteSerivce(idx) {
-    console.log(this)
     const tmp = this.state.services
     tmp.splice(idx, 1)
-
-    //must not operate this.state.services directly!!!
-    //must not operate this.state.services directly!!!
-    //must not operate this.state.services directly!!!
-    //this.state.services.splice(idx, 1)
     this.setState({
       services: tmp
-      //services: this.state.services
     })
   }
 }
