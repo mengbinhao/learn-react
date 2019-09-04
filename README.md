@@ -13,3 +13,5 @@
 10. `className`、`htmlFor`注意一些特殊会引起歧义的属性
 11. `dangerouslySetInnerHTML={{__html:item}}`
 12. React Developer Tools
+13. 组建拆分-组建传值-单向数据流
+14. `prop-type`

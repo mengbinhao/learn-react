@@ -34,9 +34,10 @@ class App extends Component {
             this.state.services.map((item, index) => {
               return (
                 <Item key={index + item}
+                      // jsname='zls'
                       content={item}
-                      deleteService={this.deleteSerivce}
                       index={index}
+                      deleteService={this.deleteSerivce}
                 />
               )
             })
