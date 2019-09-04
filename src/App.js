@@ -10,7 +10,7 @@ class App extends Component {
     //here is data
     this.state = {
       inputVal: 'jack',
-      services: ['基础按摩', '精油推背']
+      services: ['基础按摩']
     }
 
     this.changeVal = this.changeVal.bind(this)
@@ -18,6 +18,7 @@ class App extends Component {
     this.deleteSerivce = this.deleteSerivce.bind(this)
   }
   render() {
+    console.log(`App render`)
     return (
       <Fragment>
         {/* comment1 */}
@@ -73,6 +74,22 @@ class App extends Component {
     this.setState({
       services: tmp
     })
+  }
+  UNSAFE_componentWillMount() {
+    console.log(`App-UNSAFE_componentWillMount`)
+  }
+  componentDidMount() {
+    console.log(`App-componentDidMount`)
+  }
+  shouldComponentUpdate() {
+    console.log(`App-shouldComponentUpdate`)
+    return true
+  }
+  UNSAFE_componentWillUpdate() {
+    console.log(`App-UNSAFE_componentWillUpdate`)
+  }
+  componentDidUpdate() {
+    console.log(`App-componentDidUpdate`)
   }
 }
 

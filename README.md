@@ -15,4 +15,9 @@
 12. React Developer Tools
 13. 组建拆分-组建传值-单向数据流
 14. `prop-type`
-15. `ref`
+15. `ref` -> get DOM object
+16. lifecycle(initialization、mounting、updation、unmounting)
+    1.  setup props and state
+    2.  UNSAFE_componentWillMount -> render -> componentDidMount
+    3.  props(UNSAFE_componentWillReceiveProps -> **shouldComponentUpdate这可以使用生命周期进行性能优化** -> UNSAFE_componentWillUpdate -> render -> componentDidUpdate)、state(shouldComponentUpdate -> UNSAFE_componentWillUpdate -> render -> componentDidUpdate)
+    4.  componentWillUnmount
