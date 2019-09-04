@@ -3,6 +3,7 @@ import './style.css'
 import Item from './Item'
 import axios from 'axios'
 import Boss from './Boss'
+import { TransitionGroup, CSSTransition} from 'react-transition-group'
 class App extends Component {
   constructor(props) {
     super(props)
@@ -37,18 +38,27 @@ class App extends Component {
           <button onClick={this.addService}>add service</button>
         </div>
         <ul ref={ul => this.ul = ul}>
-          {
-            this.state.services.map((item, index) => {
-              return (
-                <Item key={index + item}
+          <TransitionGroup>
+            {
+              this.state.services.map((item, index) => {
+                return (
+                  <CSSTransition
+                    key={index + item + '1'}
+                    timeout={1000}
+                    classNames="boss-node"
+                    appear
+                  >
+                    <Item key={index + item}
                       // jsname='zls'
                       content={item}
                       index={index}
                       deleteService={this.deleteSerivce}
-                />
-              )
-            })
-          }
+                    />
+                  </CSSTransition>
+                )
+              })
+            }
+          </TransitionGroup>
         </ul>
         <Boss />
       </Fragment>
