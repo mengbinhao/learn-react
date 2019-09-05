@@ -8,7 +8,7 @@
 5. 循环`key`的设置
 6. `this`指向
 7. **`constructor`设置`data`,通过`setState`改变,千万不要this.xxx = e.target.value**
-8. **千万不要直接操作this.state.services.splice(idx, 1)**
+8. **千万不要直接操作this.state.services.splice(idx, 1),通过设置临时变量操作**
 9. 注释的写法
 10. `className`、`htmlFor`注意一些特殊会引起歧义的属性
 11. `dangerouslySetInnerHTML={{__html:item}}`
